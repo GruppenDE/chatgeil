@@ -382,7 +382,10 @@ Kostenlos registrieren
             }
 
             const currentReply = botResponses[chatIndex];
+            const isLastMessage = chatIndex === botResponses.length - 1;
             chatIndex++;
+
+            const delay = isLastMessage ? 3500 : 2000;
 
             setTimeout(() => {
                 botStatusText.innerHTML = `<span class="typing text-emerald-600 font-medium">Schreibt<span>.</span><span>.</span><span>.</span></span>`;
@@ -394,7 +397,7 @@ Kostenlos registrieren
                 botStatusDot.classList.add('bg-emerald-500');
                 
                 appendMessage(currentReply, 'bot');
-            }, 2000);
+            }, delay);
         }
 
         function processUserMessage() {
@@ -413,3 +416,4 @@ Kostenlos registrieren
                 processUserMessage();
             }
         });/*Here write your javascript code*/</script></html>
+        
