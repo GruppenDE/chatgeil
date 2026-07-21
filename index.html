@@ -43,7 +43,7 @@
     </div>
     <h4 class="text-slate-800 font-semibold text-base">Anrufhinweis</h4>
     <p id="modal-text" class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-     Wenn du einen 20-minütigen Videoanruf möchtest, registriere dich einfach kostenlos auf unserer Website und bestätige dein Konto per E-Mail.
+     <!-- Der Text wird dynamisch per JavaScript gesetzt -->
     </p>
     <a href="https://clicknlook.site/a/Kr54Ni401WhAzBp" target="_blank" id="close-modal-btn" class="block w-full bg-[#FCBBF6] hover:bg-[#e39ad8] text-slate-900 font-semibold py-2.5 rounded-xl text-sm transition shadow text-center">
 Kostenlos registrieren
@@ -206,6 +206,7 @@ Kostenlos registrieren
         const closeModalBtn = document.getElementById('close-modal-btn');
         const modalXBtn = document.getElementById('modal-x-btn');
         const modalIcon = document.getElementById('modal-icon');
+        const modalText = document.getElementById('modal-text');
 
         const lightboxModal = document.getElementById('lightbox-modal');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -216,8 +217,10 @@ Kostenlos registrieren
         function showCallNotification(type) {
             if (type === 'video') {
                 modalIcon.className = "fa-solid fa-video";
+                modalText.textContent = "Wenn du einen 20-minütigen Videoanruf möchtest, registriere dich einfach kostenlos auf unserer Website und bestätige dein Konto per E-Mail.";
             } else {
                 modalIcon.className = "fa-solid fa-phone";
+                modalText.textContent = "Wenn einen 60-minütigen Sexanruf tätigen möchten, registrieren sich einfach kostenlos auf unserer Website und bestätigen Ihr Konto per E-Mail.";
             }
             callModal.classList.remove('hidden');
         }
