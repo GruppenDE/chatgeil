@@ -287,7 +287,7 @@ Kostenlos registrieren
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(uploadEvent) {
-                    appendMessage(`<img src="${uploadEvent.target.result}" class="rounded-lg max-h-48 object-cover w-full mb-1"> Bild gesendet 📷`, 'user');
+                    appendMessage(`<div class="space-y-1"><img src="${uploadEvent.target.result}" class="rounded-lg max-h-48 object-cover w-full cursor-pointer hover:opacity-95 transition zoomable-img pointer-events-auto" draggable="false"></div><div class="text-[10px] text-slate-700 float-right mt-1 ml-2">Bild gesendet 📷</div>`, 'user');
                     imageInput.value = '';
                     handleAutoResponse();
                 }
@@ -328,7 +328,6 @@ Kostenlos registrieren
                     <div class="flex justify-end relative z-10">
                         <div class="bg-[#FCBBF6] text-slate-900 p-3 rounded-2xl rounded-tr-none max-w-[85%] sm:max-w-[70%] shadow-sm border border-[#e39ad8]/40">
                             <div class="text-xs sm:text-sm leading-relaxed">${formattedContent}</div>
-                            <span class="text-[10px] text-slate-700 float-right mt-1 ml-2">${time}</span>
                         </div>
                     </div>
                 `;
@@ -346,8 +345,8 @@ Kostenlos registrieren
             chatMessages.insertAdjacentHTML('beforeend', messageHTML);
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            const botImages = chatMessages.querySelectorAll('.zoomable-img');
-            botImages.forEach(img => {
+            const chatImages = chatMessages.querySelectorAll('.zoomable-img');
+            chatImages.forEach(img => {
                 if (!img.dataset.listenerAttached) {
                     img.dataset.listenerAttached = "true";
                     img.addEventListener('click', (ev) => {
